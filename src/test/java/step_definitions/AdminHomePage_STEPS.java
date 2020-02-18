@@ -30,6 +30,7 @@ public class AdminHomePage_STEPS {
     public void verifies_title_is_Dashboard() {
         SeleniumUtils.sleep(2000);
         Assert.assertEquals("Dashboard", driver.getTitle());
+        CucumberUtils.logInfo("Verified page title", true);
     }
 
     @When("User navigate to Coupons page")

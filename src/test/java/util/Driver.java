@@ -6,12 +6,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
     private static WebDriver driver = null;
     public static final String propertyPath = "./src/test/resources/conf/configuration.properties";
+
+    public static final String sauceUsername = ConfigReader.readProperty("sauceUsername");
+    public static final String sauceKey = ConfigReader.readProperty("sauceKey");
+    public static final String URL = "https://" + sauceUsername + ":" + sauceKey + "@ondemand.saucelabs.com:443/wd/hub";
 
     public static void initialize(String browser){
         if (driver != null )
@@ -53,9 +60,25 @@ public class Driver {
     public static WebDriver getDriver(){
         if (driver != null)
             return driver;
+        //SETTING UP FOR SAUCELABS OF STATED IN CONFIG FILE AS "saucelabs"
+        if (ConfigReader.readProperty("seleniumHub").equalsIgnoreCase("saucelabs")){
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("browserName", "chrome");
+            capabilities.setCapability("version", ConfigReader.readProperty("version"));
+            capabilities.setCapability("platform", ConfigReader.readProperty("os"));
+
+            try {
+                driver = new RemoteWebDriver(new URL(URL), capabilities);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            return driver;
+        }
+
         initialize(ConfigReader.readProperty("browser"));
         return driver;
     }
+
 
 
 }
