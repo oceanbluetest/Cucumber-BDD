@@ -60,12 +60,16 @@ public class Driver {
     public static WebDriver getDriver(){
         if (driver != null)
             return driver;
+
         //SETTING UP FOR SAUCELABS OF STATED IN CONFIG FILE AS "saucelabs"
         if (ConfigReader.readProperty("seleniumHub").equalsIgnoreCase("saucelabs")){
             DesiredCapabilities capabilities = new DesiredCapabilities();
             capabilities.setCapability("browserName", "chrome");
             capabilities.setCapability("version", ConfigReader.readProperty("version"));
             capabilities.setCapability("platform", ConfigReader.readProperty("os"));
+
+//            String sauceUsername=System.getenv(ConfigReader.readProperty("sauceUsername"));
+//            String sauceKey=System.getenv(ConfigReader.readProperty("sauceKey"));
 
             try {
                 driver = new RemoteWebDriver(new URL(URL), capabilities);
