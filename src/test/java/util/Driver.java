@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.FileDetector;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -80,12 +79,11 @@ public class Driver {
                 //driver = new RemoteWebDriver(new URL(URL), capabilities);
 
                 //TO TRIGGER FROM JENKINS
-                String sauceUsername_Jenkins = System.getenv(ConfigReader.readProperty("sauceUsername_Jenkins"));
-                String sauceKey_Jenkins = System.getenv(ConfigReader.readProperty("sauceKey_Jenkins"));
-                capabilities.setCapability("username", sauceUsername_Jenkins);
-                capabilities.setCapability("access-key", sauceKey_Jenkins);
-                driver = new RemoteWebDriver(new URL("http://ondemand.saucelabs.com:80/wd/hub"), capabilities);
-
+//                String sauceUsername_Jenkins = System.getenv(ConfigReader.readProperty("sauceUsername_Jenkins"));
+//                String sauceKey_Jenkins = System.getenv(ConfigReader.readProperty("sauceKey_Jenkins"));
+                capabilities.setCapability("username", sauceUsername);
+                capabilities.setCapability("access-key", sauceKey);
+                driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com:80/wd/hub"), capabilities);
 
                 ((RemoteWebDriver)driver).setFileDetector(new LocalFileDetector());
                 sauceSessionId.set(((((RemoteWebDriver)driver).getSessionId().toString())));
@@ -95,10 +93,10 @@ public class Driver {
                 e.printStackTrace();
             }
             return driver;
+        }else {
+            initialize(ConfigReader.readProperty("browser"));
+            return driver;
         }
-
-        initialize(ConfigReader.readProperty("browser"));
-        return driver;
     }
 
 
