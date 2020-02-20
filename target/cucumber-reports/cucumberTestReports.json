@@ -1,0 +1,141 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2020-02-20T21:33:44.779Z",
+        "before": [
+          {
+            "result": {
+              "duration": 7989346940,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario(Scenario)"
+            }
+          }
+        ],
+        "line": 3,
+        "name": "Verify Admin home page",
+        "description": "",
+        "id": "admin-home-page-testing;verify-admin-home-page",
+        "after": [
+          {
+            "result": {
+              "duration": 374662427,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5662519573,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "User opens Admin home page",
+            "match": {
+              "location": "AdminHomePage_STEPS.user_opens_Admin_home_page()"
+            },
+            "after": [
+              {
+                "result": {
+                  "duration": 59521,
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "Hooks.afterStepActions()"
+                }
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.UnsupportedCommandException: The test with session id 933a928af3cd4cce9fde4f3644df466a has already finished, and can\u0027t receive further commands.\nFor help, please check https://wiki.saucelabs.com/display/DOCS/Common+Error+Messages\nCommand duration or timeout: 234 milliseconds\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027Kubanychbeks-MacBook-Pro.local\u0027, ip: \u0027fe80:0:0:0:82f:5564:3d44:b73c%en0\u0027, os.name: \u0027Mac OS X\u0027, os.arch: \u0027x86_64\u0027, os.version: \u002710.15.2\u0027, java.version: \u002712.0.2\u0027\nDriver info: org.openqa.selenium.remote.RemoteWebDriver\nCapabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 78.0.3904.70 (edb9c9f3de024..., userDataDir: C:\\Users\\ADMINI~1\\AppData\\L...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:49758}, handlesAlerts: true, hasMetadata: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), rotatable: false, setWindowRect: true, strictFileInteractability: false, takesHeapSnapshot: true, takesScreenshot: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 78.0.3904.70, webStorageEnabled: true, webdriver.remote.sessionid: 933a928af3cd4cce9fde4f3644d...}\nSession ID: 933a928af3cd4cce9fde4f3644df466a\n*** Element info: {Using\u003dname, value\u003dpassword}\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)\n\tat org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)\n\tat org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:586)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:404)\n\tat org.openqa.selenium.By$ByName.findElement(By.java:284)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)\n\tat com.sun.proxy.$Proxy20.sendKeys(Unknown Source)\n\tat util.SeleniumUtils.sendKeys(SeleniumUtils.java:53)\n\tat step_definitions.step_impl.AdminHomePage_Impl.login(AdminHomePage_Impl.java:15)\n\tat step_definitions.AdminHomePage_STEPS.user_logsin_with_admin_account(AdminHomePage_STEPS.java:25)\n\tat ✽.User logsin with admin account(file:src/test/resources/features/adminHomePage.feature:5)\n",
+              "duration": 11876318132,
+              "status": "failed"
+            },
+            "line": 5,
+            "name": "User logsin with admin account",
+            "match": {
+              "location": "AdminHomePage_STEPS.user_logsin_with_admin_account()"
+            },
+            "after": [
+              {
+                "result": {
+                  "duration": 36804,
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "Hooks.afterStepActions()"
+                }
+              }
+            ],
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 354733,
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "Verifies title is Dashboard",
+            "match": {
+              "location": "AdminHomePage_STEPS.verifies_title_is_Dashboard()"
+            },
+            "after": [
+              {
+                "result": {
+                  "duration": 44465,
+                  "status": "skipped"
+                },
+                "match": {
+                  "location": "Hooks.afterStepActions()"
+                }
+              }
+            ],
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@adminHomePage"
+          },
+          {
+            "name": "@admin"
+          }
+        ]
+      }
+    ],
+    "name": "Admin Home Page testing",
+    "description": "",
+    "id": "admin-home-page-testing",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/adminHomePage.feature",
+    "tags": [
+      {
+        "name": "@adminHomePage",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      },
+      {
+        "name": "@admin",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 16
+        }
+      }
+    ]
+  }
+]

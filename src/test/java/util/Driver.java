@@ -68,19 +68,19 @@ public class Driver {
         //SETTING UP FOR SAUCELABS OF STATED IN CONFIG FILE AS "saucelabs"
         if (ConfigReader.readProperty("seleniumHub").equalsIgnoreCase("saucelabs")){
             try {
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            //capabilities.setCapability("browserName", "chrome");
-                capabilities.setBrowserName(System.getenv("SELENIUM_BROWSER"));
-                capabilities.setVersion(System.getenv("SELENIUM_VERSION"));
-                capabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
-//            capabilities.setCapability("version", ConfigReader.readProperty("version"));
-//            capabilities.setCapability("platform", ConfigReader.readProperty("os"));
+            DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+            capabilities.setCapability("browserName", "chrome");
+//                capabilities.setBrowserName(System.getenv("SELENIUM_BROWSER"));
+//                capabilities.setVersion(System.getenv("SELENIUM_VERSION"));
+//                capabilities.setCapability(CapabilityType.PLATFORM, System.getenv("SELENIUM_PLATFORM"));
+            capabilities.setCapability("version", ConfigReader.readProperty("version"));
+            capabilities.setCapability("platform", ConfigReader.readProperty("os"));
 
             //TO TRIGGER SAUCELABS LOCALLY
 //            String sauceUsername=System.getenv(ConfigReader.readProperty("sauceUsername"));
 //            String sauceKey=System.getenv(ConfigReader.readProperty("sauceKey"));
 
-                //driver = new RemoteWebDriver(new URL(URL), capabilities);
+                driver = new RemoteWebDriver(new URL(URL), capabilities);
 
                 //TO TRIGGER FROM JENKINS
 //                String sauceUsername_Jenkins = System.getenv(ConfigReader.readProperty("sauceUsername_Jenkins"));
@@ -88,7 +88,7 @@ public class Driver {
 
 //                capabilities.setCapability("username", sauceUsername);
 //                capabilities.setCapability("access-key", sauceKey);
-                driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com:80/wd/hub"), capabilities);
+                //driver = new RemoteWebDriver(new URL("https://ondemand.saucelabs.com/wd/hub"), capabilities);
 
                 ((RemoteWebDriver)driver).setFileDetector(new LocalFileDetector());
                 sauceSessionId.set(((((RemoteWebDriver)driver).getSessionId().toString())));
