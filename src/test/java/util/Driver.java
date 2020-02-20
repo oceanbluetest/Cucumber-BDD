@@ -18,7 +18,7 @@ public class Driver {
 
     public static final String sauceUsername = ConfigReader.readProperty("sauceUsername");
     public static final String sauceKey = ConfigReader.readProperty("sauceKey");
-    public static final String URL = "https://" + sauceUsername + ":" + sauceKey + "@ondemand.saucelabs.com:443/wd/hub";
+    public static final String URL = "http://" + sauceUsername + ":" + sauceKey + "@ondemand.saucelabs.com:80/wd/hub";
 
     public static void initialize(String browser){
         if (driver != null )
@@ -63,8 +63,8 @@ public class Driver {
 
         //SETTING UP FOR SAUCELABS OF STATED IN CONFIG FILE AS "saucelabs"
         if (ConfigReader.readProperty("seleniumHub").equalsIgnoreCase("saucelabs")){
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("browserName", "chrome");
+            DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+            //capabilities.setCapability("browserName", "chrome");
             capabilities.setCapability("version", ConfigReader.readProperty("version"));
             capabilities.setCapability("platform", ConfigReader.readProperty("os"));
 
