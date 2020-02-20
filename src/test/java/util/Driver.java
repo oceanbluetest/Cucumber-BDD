@@ -75,8 +75,7 @@ public class Driver {
                 capabilities.setCapability("platform", ConfigReader.readProperty("os"));
 
                 driver = new RemoteWebDriver(new URL(URL), capabilities);
-
-                ((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
+                //((RemoteWebDriver) driver).setFileDetector(new LocalFileDetector());
                 //sauceSessionId.set(((((RemoteWebDriver)driver).getSessionId().toString())));
                 driver.manage().window().maximize();
                 driver.manage().timeouts().implicitlyWait(2L, TimeUnit.MINUTES);
