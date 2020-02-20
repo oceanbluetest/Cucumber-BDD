@@ -92,11 +92,10 @@ public class Driver {
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-            return driver;
         }else {
             initialize(ConfigReader.readProperty("browser"));
-            return driver;
         }
+        return driver;
     }
 
 
